@@ -125,5 +125,58 @@ int main()
 	N1.print();
 	cout << endl;
 
+	// prompt for the input and perfoming the subtraction
+	cout << "enter your fraction:  ";
+	cin >> c >> d;
+	N3.setNumDenom(c, d);
+	N3.getNumDenom(&c, &d);
+
+	cout << "enter your fraction:  ";
+	cin >> c >> d;
+	N4.setNumDenom(c, d);
+	N4.getNumDenom(&c, &d);
+	N3.print();
+	N3.subtract(N4);
+	cout << " - ";
+	N4.print();
+	cout << "=";
+	N3.print();
+	cout << endl;
+
+	// prompt for the input and perfoming the multiplication
+	cout << "enter your fraction:  ";
+	cin >> e >> f;
+	N5.setNumDenom(e, f);
+	N5.getNumDenom(&e, &f);
+
+	cout << "enter your fraction:  ";
+	cin >> e >> f;
+	N6.setNumDenom(e, f);
+	N6.getNumDenom(&e, &f);
+	N5.print();
+	N5.multiply(N6);
+	cout << " * ";
+	N6.print();
+	cout << "=";
+	N5.print();
+	cout << endl;
+
+	// prompt for the input and perfoming the division
+	cout << "enter your fraction:  ";
+	cin >> g >> h;
+	N7.setNumDenom(g, h);
+	N7.getNumDenom(&g, &h);
+
+	cout << "enter your fraction:  ";
+	cin >> g >> h;
+	N8.setNumDenom(g, h);
+	N8.getNumDenom(&g, &h);
+	N7.print();
+	N7.divide(N8);
+	cout << " / ";
+	N8.print();
+	cout << "=";
+	N7.print();
+	cout << endl;
 
 } // end main
