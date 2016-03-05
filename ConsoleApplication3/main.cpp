@@ -27,22 +27,12 @@ public:
 
 	// function to get the denominator
 	
-	int getDenom()
-	{
-		return denominator;
-	} // end function getDenom
-
-	// function to get the numerator
-	int getNum()
-	{
-		return numerator;
-	} // end function getNum
-
+	
 	// function to add
 	void add(Fraction number)
 	{
-		int Denom = number.getDenom();
-		int Num = number.getNum();
+		int Num, Denom;
+		number.getNumDenom(&Num, &Denom);
 
 		numerator = numerator * Denom + denominator * Num;
 		denominator = denominator * Denom;
@@ -51,8 +41,8 @@ public:
 	// function to subtract
 	void subtract(Fraction number)
 	{
-		int Denom = number.getDenom();
-		int Num = number.getNum();
+		int Num, Denom;
+		number.getNumDenom(&Num, &Denom);
 
 		numerator = numerator * Denom - denominator * Num;
 		denominator = denominator * Denom;
@@ -61,8 +51,8 @@ public:
 	// function to multiply
 	void multiply(Fraction number)
 	{
-		int Denom = number.getDenom();
-		int Num = number.getNum();
+		int Num, Denom;
+		number.getNumDenom(&Num, &Denom);
 
 		numerator = numerator  * Num;
 		denominator = denominator * Denom;
@@ -71,8 +61,8 @@ public:
 	// function to divide
 	void divide(Fraction number)
 	{
-		int Denom = number.getDenom();
-		int Num = number.getNum();
+		int Num, Denom;
+		number.getNumDenom(&Num, &Denom);
 
 		numerator = numerator  * Denom;
 		denominator = denominator * Num;
