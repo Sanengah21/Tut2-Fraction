@@ -11,11 +11,21 @@ public:
 		 
 	} // end Fraction constructor
 
-	//function to get the numerator and denominator
-	void getNumDenom(int *num, int *denom)
+	Fraction Fraction :: operator +(Fraction number)
 	{
-		*num = numerator;
-		*denom = denominator;
+		int Num, Denom;
+		number.getNumDenom(Num, Denom);
+
+		Num = numerator * Denom + denominator * Num;
+		Denom = denominator * Denom;
+		number.setNumDenom(Num, Denom);
+		return number;
+	}
+	//function to get the numerator and denominator
+	void getNumDenom(int &num, int &denom)
+	{
+		num = numerator;
+		denom = denominator;
 	} // end function getNumDenom
 
 	// function to set the numerator and denominator
@@ -32,7 +42,7 @@ public:
 	void add(Fraction number)
 	{
 		int Num, Denom;
-		number.getNumDenom(&Num, &Denom);
+		number.getNumDenom(Num, Denom);
 
 		numerator = numerator * Denom + denominator * Num;
 		denominator = denominator * Denom;
@@ -42,7 +52,7 @@ public:
 	void subtract(Fraction number)
 	{
 		int Num, Denom;
-		number.getNumDenom(&Num, &Denom);
+		number.getNumDenom(Num, Denom);
 
 		numerator = numerator * Denom - denominator * Num;
 		denominator = denominator * Denom;
@@ -52,7 +62,7 @@ public:
 	void multiply(Fraction number)
 	{
 		int Num, Denom;
-		number.getNumDenom(&Num, &Denom);
+		number.getNumDenom(Num, Denom);
 
 		numerator = numerator  * Num;
 		denominator = denominator * Denom;
@@ -62,7 +72,7 @@ public:
 	void divide(Fraction number)
 	{
 		int Num, Denom;
-		number.getNumDenom(&Num, &Denom);
+		number.getNumDenom(Num, Denom);
 
 		numerator = numerator  * Denom;
 		denominator = denominator * Num;
@@ -95,78 +105,14 @@ private:
 int main()
 {
 	 // Fraction objects
-	Fraction N1 , N2, N3, N4, N5, N6, N7, N8;
-	int a, b, c, d, e, f, g, h;
-	cout << "enter your fraction:  ";
-	cin >> a >> b;
-	N1.setNumDenom(a, b);
-	N1.getNumDenom(&a, &b);
-	
-	// prompt for the input and perfoming the addition
-	cout << "enter your fraction:  ";
-	cin >> a >> b;
-	N2.setNumDenom(a, b);
-	N2.getNumDenom(&a, &b);
+	Fraction N1, N2, N3;
+
+	N1.setNumDenom(1, 2);
+	N2.setNumDenom(1, 7);
 	N1.print();
-	N1.add(N2);
 	cout << " + ";
 	N2.print();
 	cout << "=";
-	N1.print();
-	cout << endl;
-
-	// prompt for the input and perfoming the subtraction
-	cout << "enter your fraction:  ";
-	cin >> c >> d;
-	N3.setNumDenom(c, d);
-	N3.getNumDenom(&c, &d);
-
-	cout << "enter your fraction:  ";
-	cin >> c >> d;
-	N4.setNumDenom(c, d);
-	N4.getNumDenom(&c, &d);
+	N3 = N1 + N2;
 	N3.print();
-	N3.subtract(N4);
-	cout << " - ";
-	N4.print();
-	cout << "=";
-	N3.print();
-	cout << endl;
-
-	// prompt for the input and perfoming the multiplication
-	cout << "enter your fraction:  ";
-	cin >> e >> f;
-	N5.setNumDenom(e, f);
-	N5.getNumDenom(&e, &f);
-
-	cout << "enter your fraction:  ";
-	cin >> e >> f;
-	N6.setNumDenom(e, f);
-	N6.getNumDenom(&e, &f);
-	N5.print();
-	N5.multiply(N6);
-	cout << " * ";
-	N6.print();
-	cout << "=";
-	N5.print();
-	cout << endl;
-
-	// prompt for the input and perfoming the division
-	cout << "enter your fraction:  ";
-	cin >> g >> h;
-	N7.setNumDenom(g, h);
-	N7.getNumDenom(&g, &h);
-
-	cout << "enter your fraction:  ";
-	cin >> g >> h;
-	N8.setNumDenom(g, h);
-	N8.getNumDenom(&g, &h);
-	N7.print();
-	N7.divide(N8);
-	cout << " / ";
-	N8.print();
-	cout << "=";
-	N7.print();
-	cout << endl;
-
 } // end main
