@@ -11,6 +11,7 @@ public:
 		 
 	} // end Fraction constructor
 
+	// Overloading the operator(+) for adding the two fractions
 	Fraction Fraction :: operator +(Fraction number)
 	{
 		int Num, Denom;
@@ -21,6 +22,47 @@ public:
 		number.setNumDenom(Num, Denom);
 		return number;
 	}
+
+
+	// Overloading the operator(-) for adding the two fractions
+	Fraction Fraction :: operator -(Fraction number)
+	{
+		int Num, Denom;
+		number.getNumDenom(Num, Denom);
+
+		Num = numerator * Denom - denominator * Num;
+		Denom = denominator * Denom;
+		number.setNumDenom(Num, Denom);
+		return number;
+	}
+
+
+	// Overloading the operator(*) for adding the two fractions
+	Fraction Fraction :: operator *(Fraction number)
+	{
+		int Num, Denom;
+		number.getNumDenom(Num, Denom);
+
+		Num = numerator  * Num;
+		Denom = denominator * Denom;
+		number.setNumDenom(Num, Denom);
+		return number;
+	}
+
+	// Overloading the operator(/) for adding the two fractions
+	Fraction Fraction :: operator /(Fraction number)
+	{
+		int Num, Denom;
+		number.getNumDenom(Num, Denom);
+
+		Num = numerator  * Denom;
+		Denom = denominator * Num;
+		number.setNumDenom(Num, Denom);
+		return number;
+	}
+
+
+
 	//function to get the numerator and denominator
 	void getNumDenom(int &num, int &denom)
 	{
@@ -105,7 +147,7 @@ private:
 int main()
 {
 	 // Fraction objects
-	Fraction N1, N2, N3;
+	Fraction N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12;
 
 	N1.setNumDenom(1, 2);
 	N2.setNumDenom(1, 7);
@@ -115,4 +157,36 @@ int main()
 	cout << "=";
 	N3 = N1 + N2;
 	N3.print();
+	cout << endl;
+
+	N4.setNumDenom(1, 2);
+	N5.setNumDenom(1, 7);
+	N4.print();
+	cout << " - ";
+	N5.print();
+	cout << "=";
+	N6 = N4 - N5;
+	N6.print();
+	cout << endl;
+
+	N7.setNumDenom(1, 2);
+	N8.setNumDenom(1, 7);
+	N7.print();
+	cout << " * ";
+	N8.print();
+	cout << "=";
+	N9 = N7 * N8;
+	N9.print();
+	cout << endl;
+
+
+	N10.setNumDenom(1, 5);
+	N11.setNumDenom(1, 3);
+	N10.print();
+	cout << " / ";
+	N11.print();
+	cout << "=";
+	N12 = N10 / N11;
+	N12.print();
+
 } // end main
